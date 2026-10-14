@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Salon 360 Panorama</title>
+   <title>Salon Panorama</title>
    <meta name="viewport" content="width=device-width,initial-scale=1">
    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css" />
    <style>
@@ -167,12 +167,12 @@
 
             room1: {
                type: "equirectangular",
-               panorama: "livingroom.webp",
+               panorama: "zal.webp",
                autoLoad: true,
                hotSpots: [
                   {
-                     pitch: -16,
-                     yaw: 148,
+                     pitch: -13,
+                     yaw: 59,
                      cssClass: "custom-hotspot",
                      createTooltipFunc: hotspotToLiving,
                      clickHandlerFunc: () => viewer.loadScene("room2")
@@ -182,11 +182,11 @@
 
             room2: {
                type: "equirectangular",
-               panorama: "bedroom.webp",
+               panorama: "hall.webp",
                hotSpots: [
                   {
-                     pitch: -24,
-                     yaw: 117,
+                     pitch: -26,
+                     yaw: -44,
                      cssClass: "custom-hotspot",
                      createTooltipFunc: hotspotToBedroom,
                      clickHandlerFunc: () => viewer.loadScene("room1")
