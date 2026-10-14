@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="utf-8">
-   <title>360 Panorama</title>
+   <title>Salon 360 Panorama</title>
    <meta name="viewport" content="width=device-width,initial-scale=1">
    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css" />
    <style>
@@ -157,7 +157,7 @@
    <script>
       const viewer = pannellum.viewer('panorama', {
          default: {
-            firstScene: "livingroom",
+            firstScene: "room1",
             hfov: 100,
             showControls: false,
             sceneFadeDuration: 1000
@@ -165,7 +165,7 @@
 
          scenes: {
 
-            livingroom: {
+            room1: {
                type: "equirectangular",
                panorama: "livingroom.webp",
                autoLoad: true,
@@ -175,12 +175,12 @@
                      yaw: 148,
                      cssClass: "custom-hotspot",
                      createTooltipFunc: hotspotToLiving,
-                     clickHandlerFunc: () => viewer.loadScene("bedroom")
+                     clickHandlerFunc: () => viewer.loadScene("room2")
                   }
                ]
             },
 
-            bedroom: {
+            room2: {
                type: "equirectangular",
                panorama: "bedroom.webp",
                hotSpots: [
@@ -189,7 +189,7 @@
                      yaw: 117,
                      cssClass: "custom-hotspot",
                      createTooltipFunc: hotspotToBedroom,
-                     clickHandlerFunc: () => viewer.loadScene("livingroom")
+                     clickHandlerFunc: () => viewer.loadScene("room1")
                   }
                ]
             }
@@ -203,14 +203,14 @@
       function hotspotToLiving(div) {
          div.innerHTML = `
       <div class="floor-arrow"></div>
-      <div class="floor-label">Bedroom</div>
+      <div class="floor-label">Холл</div>
    `;
       }
 
       function hotspotToBedroom(div) {
          div.innerHTML = `
       <div class="floor-arrow"></div>
-      <div class="floor-label">Living room</div>
+      <div class="floor-label">Зал</div>
    `;
       }
 
@@ -219,7 +219,7 @@
          el.addEventListener('touchend', e => { e.preventDefault(); fn(); });
       }
 
-      // Панель управления (твоя логика)
+      // Панель управления
       addMobileClick(document.getElementById('up'), () => viewer.setPitch(viewer.getPitch() - 10));
       addMobileClick(document.getElementById('down'), () => viewer.setPitch(viewer.getPitch() + 10));
       addMobileClick(document.getElementById('left'), () => viewer.setYaw(viewer.getYaw() - 10));
